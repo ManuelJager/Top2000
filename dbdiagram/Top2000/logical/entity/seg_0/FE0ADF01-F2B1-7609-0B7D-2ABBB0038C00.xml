@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FE0ADF01-F2B1-7609-0B7D-2ABBB0038C00" name="Role">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:28:53 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="RoleID" id="BB5854C9-9E22-7727-933D-667892882F02">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:28:57 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RoleKey" id="BEDC3A9E-19D3-3D25-E756-BDEEE1FBB02F">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:29:05 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RoleName" id="AEE47F02-F3C3-72D9-658D-7B540B0BA136">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:29:26 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3347BB74-226B-CCE0-77EE-95795B078F85" name="ROLES PK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:29:04 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BB5854C9-9E22-7727-933D-667892882F02</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

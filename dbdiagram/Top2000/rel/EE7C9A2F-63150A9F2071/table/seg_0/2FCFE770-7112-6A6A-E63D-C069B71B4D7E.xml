@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2FCFE770-7112-6A6A-E63D-C069B71B4D7E" name="Song">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>73EA32B3-DC22-4569-F558-CA6521FE31CA</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SongID" id="ACDDD45A-2919-9FF5-3466-545C8BA6422E">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>00B5200B-2D74-52D3-5D9D-5A836B7A991F</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SongTitle" id="A9776E77-DD31-54D5-BFEE-D2930DB5867F">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>068972D5-3917-002A-D464-22A64265BA23</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255 CHAR</dataTypeSize>
+<ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ReleaseDate" id="52DD62ED-66FF-7B16-CB4B-405EBCFB9374">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>CBE90584-EE66-8DB4-DA59-BEC86E386FBA</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ExternalThumbnail" id="A25CE7C5-9112-F0D0-8B7B-D93DAF8F1686">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>B23194BD-30BC-70E9-B196-5727E74D26D2</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ExternalSampleUrl" id="667DAA75-D181-1B55-7D54-84D2C37BD29A">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>D97865EC-F2A1-EB30-9C1F-98A0F912950A</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="06373B7C-24CE-E6E8-8605-338D35D0EDE6" name="SONGS_PK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>0F280556-C0E8-B238-BA80-28C167582D0F</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ACDDD45A-2919-9FF5-3466-545C8BA6422E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

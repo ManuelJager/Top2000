@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C57B50FC-5B53-75F4-21A9-265849499182" name="Genre">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>4B147179-5DCD-EB61-B3B1-EA70749902B5</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="GenreID" id="8E394702-B2EC-30A3-6386-D9E0436058B3">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>2BF3D519-5559-1B29-28DC-D64618729F01</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GenreName" id="FE372EA6-5B0C-13DE-EB1C-AAA79612FF66">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>BB3E4E75-B62E-6740-DC21-FA388A315F74</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E90A9FBC-CA99-01DF-6685-5B58905E1ACB" name="GENRES_PK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>1DB0E474-FF86-0EAC-E2E4-FDEA37F4BDE4</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E394702-B2EC-30A3-6386-D9E0436058B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

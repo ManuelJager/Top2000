@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Top2000Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="ArtistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenreName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleKey" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="SongID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SongTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ReleaseDate" Type="date" Nullable="false" />
+          <Property Name="ExternalImageUrl" Type="text" />
+          <Property Name="ExternalSampleUrl" Type="text" />
+        </EntityType>
+        <EntityType Name="SongArtist">
+          <Key>
+            <PropertyRef Name="SongID" />
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="SongID" Type="int" Nullable="false" />
+          <Property Name="ArtistID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SongGenre">
+          <Key>
+            <PropertyRef Name="SongID" />
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="SongID" Type="int" Nullable="false" />
+          <Property Name="GenreID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SongRank">
+          <Key>
+            <PropertyRef Name="Rank" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="SongID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="PasswordHash" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="SongArtist_Artist_FK">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
+          <End Role="SongArtist" Type="Self.SongArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ArtistID" />
+            </Principal>
+            <Dependent Role="SongArtist">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SongArtist_Song_FK">
+          <End Role="Song" Type="Self.Song" Multiplicity="1" />
+          <End Role="SongArtist" Type="Self.SongArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="SongID" />
+            </Principal>
+            <Dependent Role="SongArtist">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SongGenre_Genre_FK">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="SongGenre" Type="Self.SongGenre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="GenreID" />
+            </Principal>
+            <Dependent Role="SongGenre">
+              <PropertyRef Name="GenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SongGenre_Song_FK">
+          <End Role="Song" Type="Self.Song" Multiplicity="1" />
+          <End Role="SongGenre" Type="Self.SongGenre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="SongID" />
+            </Principal>
+            <Dependent Role="SongGenre">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SongRank_Song_FK">
+          <End Role="Song" Type="Self.Song" Multiplicity="1" />
+          <End Role="SongRank" Type="Self.SongRank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="SongID" />
+            </Principal>
+            <Dependent Role="SongRank">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRole">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spInsertNewRankEntry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SongID" Type="int" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+          <Parameter Name="Rank" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spInsertNewSong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="ReleaseDate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="spNumberOfSongsOfArtist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spSelectAllArtists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spSelectAllTitles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spSelectListingOnYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spSelectSearchedArtist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ArtistName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spSelectTop10ListingOnYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Top2000ModelStoreContainer">
+          <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SongArtist" EntityType="Self.SongArtist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SongGenre" EntityType="Self.SongGenre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SongRank" EntityType="Self.SongRank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="SongArtist_Artist_FK" Association="Self.SongArtist_Artist_FK">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="SongArtist" EntitySet="SongArtist" />
+          </AssociationSet>
+          <AssociationSet Name="SongArtist_Song_FK" Association="Self.SongArtist_Song_FK">
+            <End Role="Song" EntitySet="Song" />
+            <End Role="SongArtist" EntitySet="SongArtist" />
+          </AssociationSet>
+          <AssociationSet Name="SongGenre_Genre_FK" Association="Self.SongGenre_Genre_FK">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="SongGenre" EntitySet="SongGenre" />
+          </AssociationSet>
+          <AssociationSet Name="SongGenre_Song_FK" Association="Self.SongGenre_Song_FK">
+            <End Role="Song" EntitySet="Song" />
+            <End Role="SongGenre" EntitySet="SongGenre" />
+          </AssociationSet>
+          <AssociationSet Name="SongRank_Song_FK" Association="Self.SongRank_Song_FK">
+            <End Role="Song" EntitySet="Song" />
+            <End Role="SongRank" EntitySet="SongRank" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole" Association="Self.UserRole">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Top2000Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artists" EntityType="Top2000Model.Artist" />
+          <EntitySet Name="Genres" EntityType="Top2000Model.Genre" />
+          <EntitySet Name="Roles" EntityType="Top2000Model.Role" />
+          <EntitySet Name="Songs" EntityType="Top2000Model.Song" />
+          <EntitySet Name="SongRanks" EntityType="Top2000Model.SongRank" />
+          <EntitySet Name="Users" EntityType="Top2000Model.User" />
+          <AssociationSet Name="UserRole" Association="Top2000Model.UserRole">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="SongRank_Song_FK" Association="Top2000Model.SongRank_Song_FK">
+            <End Role="Song" EntitySet="Songs" />
+            <End Role="SongRank" EntitySet="SongRanks" />
+          </AssociationSet>
+          <AssociationSet Name="SongArtist" Association="Top2000Model.SongArtist">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Song" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="SongGenre" Association="Top2000Model.SongGenre">
+            <End Role="Genre" EntitySet="Genres" />
+            <End Role="Song" EntitySet="Songs" />
+          </AssociationSet>
+          <FunctionImport Name="spInsertNewRankEntry">
+            <Parameter Name="SongID" Mode="In" Type="Int32" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+            <Parameter Name="Rank" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spInsertNewSong">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="ReleaseDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spNumberOfSongsOfArtist" ReturnType="Collection(Top2000Model.spNumberOfSongsOfArtist_Result)" />
+          <FunctionImport Name="spSelectAllArtists" ReturnType="Collection(Top2000Model.spSelectAllArtists_Result)" />
+          <FunctionImport Name="spSelectAllTitles" ReturnType="Collection(Top2000Model.spSelectAllTitles_Result)" />
+          <FunctionImport Name="spSelectListingOnYear" ReturnType="Collection(Top2000Model.spSelectListingOnYear_Result)">
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSelectSearchedArtist" ReturnType="Collection(Top2000Model.spSelectSearchedArtist_Result)">
+            <Parameter Name="ArtistName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spSelectTop10ListingOnYear" ReturnType="Collection(Top2000Model.spSelectTop10ListingOnYear_Result)">
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="ArtistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Songs" Relationship="Top2000Model.SongArtist" FromRole="Artist" ToRole="Song" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenreName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Songs" Relationship="Top2000Model.SongGenre" FromRole="Genre" ToRole="Song" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleKey" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="RoleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Top2000Model.UserRole" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="SongID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SongTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ExternalImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ExternalSampleUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SongRanks" Relationship="Top2000Model.SongRank_Song_FK" FromRole="Song" ToRole="SongRank" />
+          <NavigationProperty Name="Artists" Relationship="Top2000Model.SongArtist" FromRole="Song" ToRole="Artist" />
+          <NavigationProperty Name="Genres" Relationship="Top2000Model.SongGenre" FromRole="Song" ToRole="Genre" />
+        </EntityType>
+        <EntityType Name="SongRank">
+          <Key>
+            <PropertyRef Name="Rank" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="SongID" />
+          </Key>
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="SongID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Song" Relationship="Top2000Model.SongRank_Song_FK" FromRole="SongRank" ToRole="Song" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Top2000Model.UserRole" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="UserRole">
+          <End Type="Top2000Model.Role" Role="Role" Multiplicity="1" />
+          <End Type="Top2000Model.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SongRank_Song_FK">
+          <End Type="Top2000Model.Song" Role="Song" Multiplicity="1" />
+          <End Type="Top2000Model.SongRank" Role="SongRank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="SongID" />
+            </Principal>
+            <Dependent Role="SongRank">
+              <PropertyRef Name="SongID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SongArtist">
+          <End Type="Top2000Model.Artist" Role="Artist" Multiplicity="*" />
+          <End Type="Top2000Model.Song" Role="Song" Multiplicity="*" />
+        </Association>
+        <Association Name="SongGenre">
+          <End Type="Top2000Model.Genre" Role="Genre" Multiplicity="*" />
+          <End Type="Top2000Model.Song" Role="Song" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="spNumberOfSongsOfArtist_Result">
+          <Property Type="String" Name="ArtistName" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="SongCount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spSelectAllArtists_Result">
+          <Property Type="Int32" Name="ArtistID" Nullable="false" />
+          <Property Type="String" Name="ArtistName" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="spSelectAllTitles_Result">
+          <Property Type="Int32" Name="SongID" Nullable="false" />
+          <Property Type="String" Name="SongTitle" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="ReleaseDate" Nullable="false" />
+          <Property Type="String" Name="ExternalImageUrl" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="ExternalSampleUrl" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="spSelectListingOnYear_Result">
+          <Property Type="Int32" Name="SongID" Nullable="false" />
+          <Property Type="String" Name="SongTitle" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="ReleaseDate" Nullable="false" />
+          <Property Type="String" Name="ExternalImageUrl" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="ExternalSampleUrl" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="Rank" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spSelectSearchedArtist_Result">
+          <Property Type="Int32" Name="ArtistID" Nullable="false" />
+          <Property Type="String" Name="ArtistName" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="spSelectTop10ListingOnYear_Result">
+          <Property Type="Int32" Name="SongID" Nullable="false" />
+          <Property Type="String" Name="SongTitle" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="ReleaseDate" Nullable="false" />
+          <Property Type="String" Name="ExternalImageUrl" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="ExternalSampleUrl" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="Rank" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Top2000ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="Top2000Model.Artist">
+              <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="Top2000Model.Genre">
+              <MappingFragment StoreEntitySet="Genre">
+                <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="Top2000Model.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleKey" ColumnName="RoleKey" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="Top2000Model.Song">
+              <MappingFragment StoreEntitySet="Song">
+                <ScalarProperty Name="ExternalSampleUrl" ColumnName="ExternalSampleUrl" />
+                <ScalarProperty Name="ExternalImageUrl" ColumnName="ExternalImageUrl" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="SongTitle" ColumnName="SongTitle" />
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SongRanks">
+            <EntityTypeMapping TypeName="Top2000Model.SongRank">
+              <MappingFragment StoreEntitySet="SongRank">
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Top2000Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="SongArtist" TypeName="Top2000Model.SongArtist" StoreEntitySet="SongArtist">
+            <EndProperty Name="Song">
+              <ScalarProperty Name="SongID" ColumnName="SongID" />
+            </EndProperty>
+            <EndProperty Name="Artist">
+              <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SongGenre" TypeName="Top2000Model.SongGenre" StoreEntitySet="SongGenre">
+            <EndProperty Name="Song">
+              <ScalarProperty Name="SongID" ColumnName="SongID" />
+            </EndProperty>
+            <EndProperty Name="Genre">
+              <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="spInsertNewRankEntry" FunctionName="Top2000Model.Store.spInsertNewRankEntry" />
+          <FunctionImportMapping FunctionImportName="spInsertNewSong" FunctionName="Top2000Model.Store.spInsertNewSong" />
+          <FunctionImportMapping FunctionImportName="spNumberOfSongsOfArtist" FunctionName="Top2000Model.Store.spNumberOfSongsOfArtist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Top2000Model.spNumberOfSongsOfArtist_Result">
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="SongCount" ColumnName="SongCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSelectAllArtists" FunctionName="Top2000Model.Store.spSelectAllArtists">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Top2000Model.spSelectAllArtists_Result">
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSelectAllTitles" FunctionName="Top2000Model.Store.spSelectAllTitles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Top2000Model.spSelectAllTitles_Result">
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="SongTitle" ColumnName="SongTitle" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="ExternalImageUrl" ColumnName="ExternalImageUrl" />
+                <ScalarProperty Name="ExternalSampleUrl" ColumnName="ExternalSampleUrl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSelectListingOnYear" FunctionName="Top2000Model.Store.spSelectListingOnYear">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Top2000Model.spSelectListingOnYear_Result">
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="SongTitle" ColumnName="SongTitle" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="ExternalImageUrl" ColumnName="ExternalImageUrl" />
+                <ScalarProperty Name="ExternalSampleUrl" ColumnName="ExternalSampleUrl" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSelectSearchedArtist" FunctionName="Top2000Model.Store.spSelectSearchedArtist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Top2000Model.spSelectSearchedArtist_Result">
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSelectTop10ListingOnYear" FunctionName="Top2000Model.Store.spSelectTop10ListingOnYear">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Top2000Model.spSelectTop10ListingOnYear_Result">
+                <ScalarProperty Name="SongID" ColumnName="SongID" />
+                <ScalarProperty Name="SongTitle" ColumnName="SongTitle" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="ExternalImageUrl" ColumnName="ExternalImageUrl" />
+                <ScalarProperty Name="ExternalSampleUrl" ColumnName="ExternalSampleUrl" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

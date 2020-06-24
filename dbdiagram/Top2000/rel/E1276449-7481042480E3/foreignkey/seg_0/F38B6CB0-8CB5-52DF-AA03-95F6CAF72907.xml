@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F38B6CB0-8CB5-52DF-AA03-95F6CAF72907" containerWithKeyObject="FFAB647B-15C7-B2AB-5FDD-2C796BA5C13B" localFKIndex="4831A06B-E91D-D7AB-86CA-35D56B3ABFA0" name="SongArtist_Song_FK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 13:58:44 UTC</createdTime>
+<generatorID>DD7021CA-4C8A-9F48-5491-B19EA19CDC56</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<referredTableLongName>Song</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>86116901-3107-8775-98D6-9EB77F16629E</referredTableID>
+<keyObject>1ECA5FCA-6FD0-7BC6-92D9-6C39E7D1E5F8</keyObject>
+<referredKeyID>1ECA5FCA-6FD0-7BC6-92D9-6C39E7D1E5F8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>SongID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

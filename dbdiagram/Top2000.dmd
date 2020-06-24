@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Top2000" id="E078319C-D289-FC1A-0F2C-9EADF882A56D" version="3.5">
+<createdBy>manuel</createdBy>
+<createdTime>2020-06-15 11:32:55 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>E078319C-D289-FC1A-0F2C-9EADF882A56D</designId>
+</OSDM_Design>

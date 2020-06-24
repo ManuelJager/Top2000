@@ -1,0 +1,9 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using Top2000.ViewModels
+@model PagedList<SongViewModel>
+
+
+@Html.Partial("_SongList", Model)
+
+@Html.PagedListPager(Model, (Func<int, string>) ViewBag.PageUrlGenerator)

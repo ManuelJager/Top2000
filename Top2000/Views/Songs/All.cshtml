@@ -1,0 +1,10 @@
+﻿@using PagedList
+@using Top2000.ViewModels
+@model PagedList<SongViewModel>
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All</h2>
+
+@Html.Partial("_PagedSongList", Model)

@@ -1,0 +1,18 @@
+﻿@using PagedList
+@using Top2000.ViewModels
+@model PagedList<SongViewModel>
+@{
+    ViewBag.Title = "Popular by year";
+}
+
+<h2>Popular by year - @ViewBag.Year</h2>
+
+<form asp-controller="Songs" asp-action="Popular">
+    <p>
+        Year: <input type="number" name="year">
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
+@Html.Partial("_PagedSongList", Model)
+

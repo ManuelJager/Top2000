@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CC54040F-0011-B31A-4E36-6167BE3B8200" name="SongRank">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Rank_Rank" id="B375C2ED-12CB-7CB7-C39D-2BE31E6921F9">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="256B78AC-C89A-201F-6E98-BA621ADC5419" referredColumn="0A9FE1BC-3434-8D40-536C-814372EE428E"/>
+</associations>
+</Column>
+<Column name="Rank_Year" id="51D11765-141A-B050-9A33-89A0B220DF68">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="256B78AC-C89A-201F-6E98-BA621ADC5419" referredColumn="57DA835A-F836-B792-8BD9-0671C3F75213"/>
+</associations>
+</Column>
+<Column name="Song_SongID" id="56A2C9AE-5195-1CE7-9964-391A6C6403C0">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5C6B0667-1969-A9F5-EDBE-64B098625818" referredColumn="ACDDD45A-2919-9FF5-3466-545C8BA6422E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2E9FC292-BE66-4B5C-F0B2-808FE915F570" name="SongRank_PK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B375C2ED-12CB-7CB7-C39D-2BE31E6921F9"/>
+<colUsage columnID="51D11765-141A-B050-9A33-89A0B220DF68"/>
+<colUsage columnID="56A2C9AE-5195-1CE7-9964-391A6C6403C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9EC68ADC-B96E-594F-7441-210BB3A4AF7A" name="SongRank_Rank_FK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>21D7D86C-D3D1-E27C-416F-9FA6A3535E62</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B375C2ED-12CB-7CB7-C39D-2BE31E6921F9"/>
+<colUsage columnID="51D11765-141A-B050-9A33-89A0B220DF68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A2C2918-E658-E4B1-D355-9DB3A3C57A85" name="SongRank_Song_FK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-17 16:23:27 UTC</createdTime>
+<generatorID>21D7D86C-D3D1-E27C-416F-9FA6A3535E62</generatorID>
+<ownerDesignName>Top2000</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="56A2C9AE-5195-1CE7-9964-391A6C6403C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

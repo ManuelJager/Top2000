@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Top2000.ViewModels.SongViewModel>
+@{
+    ViewBag.Title = "Top 10 by year";
+}
+
+<h2>Top 10 released on year - @ViewBag.Year</h2>
+
+<form asp-controller="Songs" asp-action="Top10">
+    <p>
+        Year: <input type="number" name="year">
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
+@Html.Partial("_SongList", Model)

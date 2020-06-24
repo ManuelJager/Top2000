@@ -1,0 +1,27 @@
+﻿@using Top2000.ViewModels
+@model IEnumerable<SongViewModel>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Title</th>
+            <th scope="col">Artist</th>
+            <th scope="col">ReleaseDate</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var song in Model)
+        {
+            var artistString = song.Artists == null ? "" : string.Join(", ", song.Artists);
+
+            <tr>
+                <th scope="row">@song.Rank</th>
+                <td>@song.Title</td>
+                <td>@artistString</td>
+                <td>@song.Year</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F8D3B01A-04E7-66CC-1EEF-6A14F2F67BA7" name="Rank">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:35:27 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Year" id="5C030C7F-767C-134B-0173-9688ECB6AF83">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:35:32 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Rank" id="C7845ED9-5E24-4795-C3EC-622EDB8B6461">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:42:35 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="52EA87A6-434F-27C7-0DE8-367D44ABD637" name="RANK PK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:42:56 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C7845ED9-5E24-4795-C3EC-622EDB8B6461</attributeRef>
+<attributeRef>5C030C7F-767C-134B-0173-9688ECB6AF83</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

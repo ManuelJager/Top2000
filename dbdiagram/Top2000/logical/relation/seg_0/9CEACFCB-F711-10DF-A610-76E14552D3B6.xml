@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SongGenre" directorySegmentName="seg_0" id="9CEACFCB-F711-10DF-A610-76E14552D3B6">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 13:12:52 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<sourcePk>0F280556-C0E8-B238-BA80-28C167582D0F</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>73EA32B3-DC22-4569-F558-CA6521FE31CA</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>4B147179-5DCD-EB61-B3B1-EA70749902B5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F0F5E897-1282-7F02-78C6-C19D151DB800" name="Artist">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:16:25 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ArtistID" id="86972BD8-88F8-3E20-DF6F-87CEB75DB80F">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:16:33 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ArtistName" id="323C7658-BCF5-996B-1603-E8776D923859">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:16:49 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255 CHAR</dataTypeSize>
+<ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D24B6B18-3294-13AB-4002-4AB31EFBBB4D" name="ARTISTS PK">
+<createdBy>stijn</createdBy>
+<createdTime>2020-06-15 12:16:47 UTC</createdTime>
+<ownerDesignName>Top2000</ownerDesignName>
+<engineerTo>
+<item key="6C7193B7-8F24-E7D4-43D5-30FC6E204312" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>86972BD8-88F8-3E20-DF6F-87CEB75DB80F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
