@@ -7,10 +7,10 @@
       <Diagram DiagramId="30da8e74a22647feb5231e5c14cca717" Name="Diagram1">
         <EntityTypeShape EntityType="Top2000Model.Artist" Width="1.5" PointX="0.75" PointY="1.375" />
         <EntityTypeShape EntityType="Top2000Model.Genre" Width="1.5" PointX="0.75" PointY="5.375" />
-        <EntityTypeShape EntityType="Top2000Model.Role" Width="1.5" PointX="2.75" PointY="5.25" />
+        <EntityTypeShape EntityType="Top2000Model.Role" Width="1.5" PointX="7.375" PointY="6.875" />
         <EntityTypeShape EntityType="Top2000Model.Song" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="Top2000Model.SongRank" Width="1.5" PointX="5.25" PointY="1.375" />
-        <EntityTypeShape EntityType="Top2000Model.User" Width="1.5" PointX="5" PointY="5" />
+        <EntityTypeShape EntityType="Top2000Model.User" Width="1.5" PointX="9" PointY="6.875" />
         <AssociationConnector Association="Top2000Model.UserRole" />
         <AssociationConnector Association="Top2000Model.SongRank_Song_FK" />
         <AssociationConnector Association="Top2000Model.SongArtist" />
