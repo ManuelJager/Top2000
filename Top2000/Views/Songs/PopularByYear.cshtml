@@ -2,10 +2,10 @@
 @using Top2000.ViewModels
 @model PagedList<SongViewModel>
 @{
-    ViewBag.Title = "Popular by year";
+    ViewBag.Title = "Top2000";
 }
 
-<h2>Popular by year - @ViewBag.Year</h2>
+<h2>@ViewBag.Title - @ViewBag.Year</h2>
 
 <form asp-controller="Songs" asp-action="Popular">
     <p>

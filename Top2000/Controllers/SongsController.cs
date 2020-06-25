@@ -1,10 +1,7 @@
 ﻿using PagedList;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI;
 using Top2000.ViewModels;
 
 namespace Top2000.Controllers
@@ -21,6 +18,7 @@ namespace Top2000.Controllers
             });
 
             ViewBag.PageUrlGenerator = PageUrlGenerator;
+            ViewBag.UseIndex = false;
 
             using (var db = new Entities())
             {
@@ -36,17 +34,17 @@ namespace Top2000.Controllers
                     })
                     .ToList()
                     .ToPagedList(page ?? 1, PAGE_SIZE);
-                    
+
                 return View(result);
             }
         }
 
         [Route("Songs/Popular")]
-        public ActionResult PopularByYear(int? year, int?page)
+        public ActionResult PopularByYear(int? year, int? page)
         {
             year = year ?? DateTime.Now.Year - 1;
 
-            Func<int, string> PageUrlGenerator = (newPage) => Url.Action($"Popular", new 
+            Func<int, string> PageUrlGenerator = (newPage) => Url.Action($"Popular", new
             {
                 year,
                 page = newPage,
@@ -54,6 +52,7 @@ namespace Top2000.Controllers
 
             ViewBag.PageUrlGenerator = PageUrlGenerator;
             ViewBag.Year = year;
+            ViewBag.UseIndex = false;
 
             using (var db = new Entities())
             {
@@ -82,6 +81,7 @@ namespace Top2000.Controllers
             year = year ?? DateTime.Now.Year - 1;
 
             ViewBag.Year = year;
+            ViewBag.UseIndex = true;
 
             using (var db = new Entities())
             {

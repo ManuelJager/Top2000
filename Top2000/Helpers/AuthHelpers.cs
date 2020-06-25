@@ -18,7 +18,7 @@ namespace Top2000.Helpers
 
         public static IPrincipal GetUser(this WebPageRenderingBase page)
         {
-            return page.Session["principal"] as GenericPrincipal;
+            return page.Session["principal"] as IPrincipal;
         }
 
         public static bool IsLoggedIn(this Controller page)
@@ -29,7 +29,7 @@ namespace Top2000.Helpers
 
         public static IPrincipal GetUser(this Controller page)
         {
-            return page.Session["principal"] as GenericPrincipal;
+            return page.Session["principal"] as IPrincipal;
         }
     }
 }
